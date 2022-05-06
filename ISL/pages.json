@@ -7,7 +7,14 @@
 		{
 			"path": "pages/index/index",
 			"style": {}
-		}
+		},
+        {
+            "path" : "pages/monitor/violationDetail",
+            "style" :                                                                                    
+            {
+            }
+            
+        }
 	],
 	"globalStyle": {
 		"navigationStyle":"custom",

@@ -22,6 +22,18 @@ Vue.component('violation',violation)
 import viodetail from "./pages/monitor/violationDetail.vue"
 Vue.component('viodetail',viodetail)
 
+import setting from "./pages/setting/home.vue"
+Vue.component('setting',setting)
+
+import changepw from "./pages/setting/changepw.vue"
+Vue.component('changepw',changepw)
+
+import quit from "./pages/setting/quit.vue"
+Vue.component('quit',quit)
+
+import userData from "./pages/setting/userData.vue"
+Vue.component('userData',userData)
+
 
 
 Vue.config.productionTip = false

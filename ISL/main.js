@@ -34,6 +34,18 @@ Vue.component('quit',quit)
 import userData from "./pages/setting/userData.vue"
 Vue.component('userData',userData)
 
+import slManagement from "./pages/slManagement/home.vue"
+Vue.component('slManagement',slManagement)
+
+import slDetail from "./pages/slManagement/slDetail.vue"
+Vue.component('slDetail',slDetail)
+
+import timeDate from "./pages/slManagement/timeDate.vue"
+Vue.component('timeDate',timeDate)
+
+import timeManage from "./pages/slManagement/timeManage.vue"
+Vue.component('timeManage',timeManage)
+
 
 
 Vue.config.productionTip = false

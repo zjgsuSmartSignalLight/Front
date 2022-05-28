@@ -37,7 +37,7 @@
 					<view class="cu-bar tabbar bg-home shadow" style="background-color: rgb(17, 62, 103);height: 80rpx;font-size: 9.11rpx;" >
 						<view class="action" style="">
 							<view class="dwxx lp">
-								<view class="dwxx1 ">16</view>
+								<view class="dwxx1 ">{{tjData[0]}}</view>
 							</view>
 							
 							<view class="mycontent wgtj" >漏牌</view>
@@ -45,19 +45,19 @@
 						</view>
 						<view class="action">
 							<view class="dwxx cs">
-								<view class="dwxx1">13</view>
+								<view class="dwxx1">{{tjData[1]}}</view>
 							</view>
 							<view class="mycontent wgtj" >超速</view>
 						</view>
 						<view class="action">
 							<view class="dwxx chd">
-								<view class="dwxx1">6</view>
+								<view class="dwxx1">{{tjData[2]}}</view>
 							</view>
 							<view class="mycontent wgtj" >闯红灯</view>
 						</view>
 						<view class="action">
 							<view class="dwxx bfcl">
-								<view class="dwxx1">28</view>
+								<view class="dwxx1">{{tjData[3]}}</view>
 							</view>
 							<view class="mycontent wgtj" >报废车辆</view>
 						</view>
@@ -65,7 +65,7 @@
 					<view class="cu-bar tabbar bg-home " style="background-color: rgb(17, 62, 103);height: 80rpx;font-size: 9.11rpx;" >
 						<view class="action" style="">
 							<view class="dwxx lp">
-								<view class="dwxx1 ">20</view>
+								<view class="dwxx1 ">{{tjData[4]}}</view>
 							</view>
 							
 							<view class="mycontent wgtj" >违规变道</view>
@@ -73,19 +73,19 @@
 						</view>
 						<view class="action">
 							<view class="dwxx cs">
-								<view class="dwxx1">15</view>
+								<view class="dwxx1">{{tjData[5]}}</view>
 							</view>
 							<view class="mycontent wgtj" >超员</view>
 						</view>
 						<view class="action">
 							<view class="dwxx chd">
-								<view class="dwxx1">9</view>
+								<view class="dwxx1">{{tjData[6]}}</view>
 							</view>
 							<view class="mycontent wgtj" >违规掉头</view>
 						</view>
 						<view class="action">
 							<view class="dwxx bfcl">
-								<view class="dwxx1">28</view>
+								<view class="dwxx1">{{tjData[7]}}</view>
 							</view>
 							<view class="mycontent wgtj" >遮挡号牌</view>
 						</view>
@@ -93,7 +93,7 @@
 					<view class="cu-bar tabbar bg-home" style="background-color: rgb(17, 62, 103);height: 80rpx;font-size: 9.11rpx;" >
 						<view class="action" style="">
 							<view class="dwxx lp">
-								<view class="dwxx1 ">6</view>
+								<view class="dwxx1 ">{{tjData[8]}}</view>
 							</view>
 							
 							<view class="mycontent wgtj" >违规倒车</view>
@@ -101,13 +101,13 @@
 						</view>
 						<view class="action">
 							<view class="dwxx cs">
-								<view class="dwxx1">8</view>
+								<view class="dwxx1">{{tjData[9]}}</view>
 							</view>
 							<view class="mycontent wgtj" >套牌</view>
 						</view>
 						<view class="action">
 							<view class="dwxx chd">
-								<view class="dwxx1">3</view>
+								<view class="dwxx1">{{tjData[10]}}</view>
 							</view>
 							<view class="mycontent wgtj" >逆行</view>
 						</view>
@@ -133,6 +133,7 @@
 			return {
 				id:3,
 				godetail:false,
+				tjData:[1,2,3,4,5,6,7,8,9,10,11],
 				gjData:[
 					{
 						'carid':'浙A56776',
@@ -205,6 +206,9 @@
 					],
 			}
 		},
+		mounted:function() {
+			this.get_violation_statistic();
+		},
 		methods: {
 			goVioDetail(id){
 				console.log('gogogo')
@@ -215,6 +219,13 @@
 				console.log(e)
 				this.godetail=e
 				console.log(this.godetail)
+			},
+			//获取统计违规项
+			get_violation_statistic:function(){
+				this.api.get_violation_statistic().then(res=>{
+					console.log('统计违规项',res)
+					this.$data.tjData=[res["漏牌"],res["超速"],res["闯红灯"],res["报废车辆"],res["违规变道"],res["超载"],res["违规掉头"],res["其他"],res["违规倒车"],res["套牌"],res["逆行"]]
+				})
 			}
 		}
 	}

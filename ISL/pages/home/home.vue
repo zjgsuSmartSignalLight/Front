@@ -41,25 +41,25 @@
 				<view class="cu-bar tabbar bg-home shadow" style="min-height: 0rpx; background-color: #041439;height: 69.77rpx;" >
 					<view class="action" style="">
 						<view class="dwxx kx">
-							<view class="dwxx1 ">16</view>
+							<view class="dwxx1 ">{{passinfo[0]}}</view>
 						</view>
 						<view class="mycontent" style="" >空闲</view>
 					</view>
 					<view class="action">
 						<view class="dwxx ct">
-							<view class="dwxx1">13</view>
+							<view class="dwxx1">{{passinfo[1]}}</view>
 						</view>
-						<view class="mycontent">畅通</view>
+						<view class="mycontent">通畅</view>
 					</view>
 					<view class="action">
 						<view class="dwxx fm">
-							<view class="dwxx1">6</view>
+							<view class="dwxx1">{{passinfo[2]}}</view>
 						</view>
 						<view class="mycontent">繁忙</view>
 					</view>
 					<view class="action">
 						<view class="dwxx yd">
-							<view class="dwxx1">28</view>
+							<view class="dwxx1">{{passinfo[3]}}</view>
 						</view>
 						<view class="mycontent">拥堵</view>
 					</view>
@@ -100,6 +100,7 @@
 		name:"home",
 		data() {
 			return {
+				passinfo:[10,10,10,10],
 				gjData:[
 					{
 						'content':"违规掉头",
@@ -143,12 +144,12 @@
 						'time':'16:58'
 					}
 					],
-				chartData:{
-				  categories: ["小型机动车", "大型机动车", "非机动车", "特殊车辆"],
+				chartData:{                        
+				  categories: ["机动车", "非机动车", "行人", "特殊车辆"],
 				  series: [{
 				    name: "数据",
 				    data: [1390, 699, 1688,1000],
-					 color: "#5087ec"
+					color: "#5087ec"
 				  }]
 				},
 				chartData_pie:{
@@ -187,8 +188,28 @@
 				}
 			}
 		},
+		mounted:function() {
+			this.get_msg_motorNum();
+			this.get_msg_passinfo();
+		},
 		methods: {
+			//获取车辆总数
+			get_msg_motorNum:function(){
+				this.api.get_msg_motorNum().then(res=>{
+					console.log('车辆总数',res)
+					// console.log("特殊车辆",res["特殊车辆"]["total"])
+					this.$data.chartData.series[0]["data"]=[res["机动车"],res["非机动车"],res["行人"],res["特殊车辆"]["total"]]
+					// console.log("ARR",this.$data.chartData.series[0]["data"])
+				})
+			},
 			
+			//获取点位状况
+			get_msg_passinfo:function(){
+				this.api.get_msg_passinfo().then(res=>{
+					console.log('点位状态',res)
+					this.$data.passinfo=[res["空闲"],res["通畅"],res["繁忙"],res["拥堵"]]
+				})
+			}
 		}
 	}
 </script>

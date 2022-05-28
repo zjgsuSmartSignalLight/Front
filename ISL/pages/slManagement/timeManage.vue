@@ -118,7 +118,7 @@
 							</view>
 						</view>
 						<view class="xgview" @click="open" data-cur="DialogModal1">
-							<image class="xgimg2" :src="'/static/afm2.png'">
+							<image class="xgimg2" :src="'/static/afm.png'">
 							</image>
 						</view>
 					</view>

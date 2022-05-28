@@ -46,9 +46,26 @@ Vue.component('timeDate',timeDate)
 import timeManage from "./pages/slManagement/timeManage.vue"
 Vue.component('timeManage',timeManage)
 
+import stats from "./pages/stats/home.vue"
+Vue.component('stats',stats)
 
+import hisFlowrate from "./pages/stats/hisFlowrate.vue"
+Vue.component('hisFlowrate',hisFlowrate)
+
+import hisHeatmap from "./pages/stats/hisHeatmap.vue"
+Vue.component('hisHeatmap',hisHeatmap)
+
+import congestionIndex from "./pages/stats/congestionIndex.vue"
+Vue.component('congestionIndex',congestionIndex)
+
+import imbalanceIndex from "./pages/stats/imbalanceIndex.vue"
+Vue.component('imbalanceIndex',imbalanceIndex)
+
+
+import api from './network/api.js'
 
 Vue.config.productionTip = false
+Vue.prototype.api = api
 App.mpType = 'app'
 const app = new Vue({
     ...App

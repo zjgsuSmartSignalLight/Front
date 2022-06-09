@@ -36,7 +36,7 @@
 		<view style="margin-left: 68%; position: absolute;">
 			<view class="fbox" style="min-height: 0rpx; height: 90.55rpx;">
 				<view class="titlebox">
-					<view class="charttitle">交通点信息</view>
+					<view class="charttitle">交通点位信息</view>
 				</view>
 				<view class="cu-bar tabbar bg-home shadow" style="min-height: 0rpx; background-color: #041439;height: 69.77rpx;" >
 					<view class="action" style="">
@@ -155,37 +155,37 @@
 				chartData_pie:{
 					series: [
 						{
-            "data": [
-                {
-                    "name": "小轿车",
-                    "value": 50
-                },
-                {
-                    "name": "特殊车辆",
-                    "value": 30
-                },
-                {
-                    "name": "自行车",
-                    "value": 20
-                },
-                {
-                    "name": "摩托车",
-                    "value": 18
-                },
-                {
-                    "name": "电瓶车",
-                    "value": 8
-                },{
-                    "name": "大客车",
-                    "value": 18
-                },{
-                    "name": "大货车",
-                    "value": 18
-                }
-            ]
-        }
-    ]
-				}
+							"data": [
+								{
+									"name": "小轿车",
+									"value": 50
+								},
+								{
+									"name": "特殊车辆",
+									"value": 30
+								},
+								{
+									"name": "自行车",
+									"value": 20
+								},
+								{
+									"name": "摩托车",
+									"value": 18
+								},
+								{
+									"name": "电瓶车",
+									"value": 8
+								},{
+									"name": "大客车",
+									"value": 18
+								},{
+									"name": "大货车",
+									"value": 18
+								}
+							]
+						}
+							]
+					}
 			}
 		},
 		mounted:function() {
